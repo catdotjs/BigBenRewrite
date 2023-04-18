@@ -183,7 +183,6 @@ class Program {
             };
             await client.PostAsync($"https://discord.com/api/applications/{Config["DiscordAppId"]}/commands", new StringContent(slashCommands.ToString(), Encoding.UTF8, "application/json"));
 
-            SendGlobalBongs();
             int hour = -1;
             while(true) {
 
