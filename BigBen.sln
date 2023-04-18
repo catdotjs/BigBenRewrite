@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigBen", "BigBen\BigBen.csproj", "{94F4DA6A-09DB-412F-93E1-1984A86CBE31}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{94F4DA6A-09DB-412F-93E1-1984A86CBE31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94F4DA6A-09DB-412F-93E1-1984A86CBE31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94F4DA6A-09DB-412F-93E1-1984A86CBE31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94F4DA6A-09DB-412F-93E1-1984A86CBE31}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B848F487-9004-4079-8BEC-49C5FE404017}
+	EndGlobalSection
+EndGlobal
