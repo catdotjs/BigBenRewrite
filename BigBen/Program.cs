@@ -178,8 +178,10 @@ class Program {
                         {"description","channel to send bong messages"},
                         {"type", 7},
                         {"required",true}
-                    }
-                } },
+                    }}
+                },
+                { "default_member_permissions","16"},
+                { "dm_permission",false},
             };
             await client.PostAsync($"https://discord.com/api/applications/{Config["DiscordAppId"]}/commands", new StringContent(slashCommands.ToString(), Encoding.UTF8, "application/json"));
 
