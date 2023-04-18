@@ -88,7 +88,7 @@ class Program {
     public static void Main(string[] args) {
         //Get keys
 
-        Config=JObject.Parse(File.ReadAllText("Key\\APIKeys.json"));
+        Config=JObject.Parse(File.ReadAllText("Key/APIKeys.json"));
         client.DefaultRequestHeaders.Authorization =new AuthenticationHeaderValue("Bot", (string)Config["DiscordAPI"]);
         pub = publicKey.Import(sig, Convert.FromHexString((string)Config["DiscordPubKey"]), KeyBlobFormat.RawPublicKey);
 
@@ -100,7 +100,7 @@ class Program {
         IPAddress ip = IPAddress.Parse((string)Config["PrivateIP"]);
         /*
         Console.WriteLine(ip.ToString());
-        X509Certificate2 cert = new X509Certificate2("Key\\certificate.pfx", (string)Config["SSLPassword"]);
+        X509Certificate2 cert = new X509Certificate2("Key/certificate.pfx", (string)Config["SSLPassword"]);
         */
         builder.WebHost.UseKestrel(options => {
             options.Listen(ip, 443, listenOpt => {
@@ -158,7 +158,7 @@ class Program {
             //Database time bbg
             dbConnection=new NpgsqlConnection((string)Config["Postgres"]);
             await dbConnection.OpenAsync();
-            using(StreamReader SQLDB = File.OpenText("Key\\dbinit.sql")) {
+            using(StreamReader SQLDB = File.OpenText("Key/dbinit.sql")) {
                 try {
                     await using(NpgsqlCommand cmd = new NpgsqlCommand(await SQLDB.ReadToEndAsync(),dbConnection)) {
                         await cmd.ExecuteNonQueryAsync();
