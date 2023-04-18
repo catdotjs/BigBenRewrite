@@ -1,6 +1,7 @@
 {
   "CatAPIKey": "[API key from https://thecatapi.com/]",
   "DiscordAPI": "[API key of your discord bot]",
+  "DiscordPubKey": "[Discord App Pubic Key]",
   "Postgres": "Host=[IP];Username=[username];Password=[password];Database=BigBen",
   "SSLPassword": "[PFX file key here]",
   "DiscordAppId": "[Discord App Id]",

@@ -76,7 +76,7 @@ class Program {
 
     //Ed25519
     private static SignatureAlgorithm sig = SignatureAlgorithm.Ed25519;
-    private static publicKey pub = publicKey.Import(sig, Convert.FromHexString("2d4fbf20b3863dcd3a999cdb6c741e6f09b1bbbda639867c39cfab645fe21451"), KeyBlobFormat.RawPublicKey);
+    private static publicKey pub;
     
     //Background Worker
     private static BackgroundWorker webServer = new BackgroundWorker();
@@ -87,19 +87,24 @@ class Program {
 
     public static void Main(string[] args) {
         //Get keys
+
         Config=JObject.Parse(File.ReadAllText("Key\\APIKeys.json"));
         client.DefaultRequestHeaders.Authorization =new AuthenticationHeaderValue("Bot", (string)Config["DiscordAPI"]);
+        pub = publicKey.Import(sig, Convert.FromHexString((string)Config["DiscordPubKey"]), KeyBlobFormat.RawPublicKey);
 
         //Sets up server
         var builder = WebApplication.CreateBuilder(args);
 
         //Use PFX you dumbo
+        
         IPAddress ip = IPAddress.Parse((string)Config["PrivateIP"]);
+        /*
         Console.WriteLine(ip.ToString());
         X509Certificate2 cert = new X509Certificate2("Key\\certificate.pfx", (string)Config["SSLPassword"]);
+        */
         builder.WebHost.UseKestrel(options => {
             options.Listen(ip, 443, listenOpt => {
-                listenOpt.UseHttps(cert);
+                //listenOpt.UseHttps(cert);
             });
             options.Listen(ip, 80);
         });
